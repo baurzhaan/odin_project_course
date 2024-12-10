@@ -1,8 +1,6 @@
-=begin
-Implement a Caesar cipher that takes in a string and the shift factor and then outputs the modified string using a right shift:
-  > caesar_cipher("What a string!", 5)
-  => "Bmfy f xywnsl!"
-=end
+# Implement a Caesar cipher that takes in a string and the shift factor and then outputs the modified string using a right shift:
+#   > caesar_cipher("What a string!", 5)
+#   => "Bmfy f xywnsl!"
 
 def caesar_cipher(string, shift)
   lowers = ('a'..'z').to_a
@@ -12,11 +10,11 @@ def caesar_cipher(string, shift)
     if lowers.include?(letter)
       index = lowers.find_index(letter)
       new_index = index + shift <= 26 ? index + shift : index + shift - 26
-      letter = lowers[new_index]
+      lowers[new_index]
     elsif capitals.include?(letter)
       index = capitals.find_index(letter)
       new_index = index + shift <= 26 ? index + shift : index + shift - 26
-      letter = capitals[new_index]
+      capitals[new_index]
     else
       letter
     end
@@ -24,5 +22,5 @@ def caesar_cipher(string, shift)
   result.join
 end
 
-puts caesar_cipher("What a string!", 5)
-puts "Bmfy f xywnsl!"
+puts caesar_cipher('What a string!', 5)
+puts 'Bmfy f xywnsl!'
